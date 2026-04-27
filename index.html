@@ -8,62 +8,68 @@
 <style>
 
 /* ====== GLOBAL ====== */
-
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: radial-gradient(circle at top, #1e1b4b, #0f0a1f);
+    background: linear-gradient(180deg, #4c1d95 0%, #2e1065 40%, #1a0b3d 100%);
+    background-attachment: fixed;
     color: #e5e7eb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
+
+/* ====== CHMURKI ====== */
+body::before, body::after {
+    content: "";
+    position: fixed;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(168,85,247,0.35), transparent 70%);
+    filter: blur(120px);
+    z-index: -1;
+}
+body::before { top: -200px; left: -200px; }
+body::after { bottom: -200px; right: -200px; }
 
 /* ====== LOGO ====== */
-
-.logo-container {
+.logo-top {
     text-align: center;
-    margin-top: 120px;
+    margin-top: 60px;
 }
-
-.logo {
+.logo-top h1 {
     font-size: 72px;
-    font-weight: 700;
-    letter-spacing: -1px;
+    font-weight: 800;
+    letter-spacing: -3px;
     margin-bottom: 10px;
 }
-
 .qiux {
     color: #a855f7;
-    text-shadow: 0 0 15px #a855f7;
+    text-shadow: 0 0 20px #a855f7;
 }
-
 .google span {
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    text-shadow: 0 0 12px rgba(255,255,255,0.4);
 }
 
-/* ====== SPRAWDŹ ORYGINALNOŚĆ ====== */
-
+/* ====== PRZYCISK ====== */
 .verify {
     display: inline-block;
-    margin-top: 5px; /* BLIŻEJ LOGO */
-    padding: 12px 26px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(168,85,247,0.4);
-    border-radius: 12px;
-    color: #c4b5fd;
-    backdrop-filter: blur(8px);
+    margin-top: 10px;
+    padding: 14px 32px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid #a855f7;
+    border-radius: 14px;
+    color: #e9d5ff;
+    font-size: 22px;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 20px;
-    transition: 0.2s;
-    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #a855f7, 0 0 40px rgba(168,85,247,0.6);
+    transition: 0.25s;
 }
-
 .verify:hover {
-    background: rgba(168,85,247,0.3);
+    background: #a855f7;
     color: white;
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 </style>
@@ -71,9 +77,8 @@ body {
 
 <body>
 
-<!-- LOGO -->
-<div class="logo-container">
-    <h1 class="logo">
+<div class="logo-top">
+    <h1>
         <span class="qiux">QiuX</span>
         <span class="google">
             <span style="color:#4285F4;">G</span>
@@ -85,7 +90,7 @@ body {
         </span>
     </h1>
 
-    <a class="verify" href="#">Sprawdź oryginalność</a>
+    <a class="verify" href="mojeprojekty.html">Sprawdź Oryginalność</a>
 </div>
 
 </body>
