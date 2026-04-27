@@ -23,14 +23,14 @@ body {
 
 .logo-container {
     text-align: center;
-    margin-top: 60px;
-    margin-bottom: 10px;
+    margin-top: 120px;
 }
 
 .logo {
-    font-size: 64px;
+    font-size: 72px;
     font-weight: 700;
     letter-spacing: -1px;
+    margin-bottom: 10px;
 }
 
 .qiux {
@@ -47,138 +47,23 @@ body {
 
 .verify {
     display: inline-block;
-    margin-top: 12px;
-    padding: 10px 22px;
-    background: rgba(255,255,255,0.05);
+    margin-top: 5px; /* BLIŻEJ LOGO */
+    padding: 12px 26px;
+    background: rgba(255,255,255,0.06);
     border: 1px solid rgba(168,85,247,0.4);
-    border-radius: 10px;
+    border-radius: 12px;
     color: #c4b5fd;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .verify:hover {
     background: rgba(168,85,247,0.3);
     color: white;
-}
-
-/* ====== LOGIN BOX ====== */
-
-.login-box {
-    width: 350px;
-    padding: 25px;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.login-box h2 {
-    margin: 0 0 15px 0;
-    color: #c084fc;
-}
-
-.login-box input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-size: 16px;
-    outline: none;
-}
-
-.login-box input::placeholder {
-    color: #b3b3b3;
-}
-
-.login-btn {
-    width: 100%;
-    margin-top: 15px;
-    padding: 12px;
-    background: #7c3aed;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.login-btn:hover {
-    background: #9d4edd;
-}
-
-.login-links {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.login-links a {
-    color: #c4b5fd;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.login-links a:hover {
-    color: white;
-}
-
-/* ====== SEARCH ====== */
-
-.search-section {
-    width: 90%;
-    max-width: 600px;
-    margin-bottom: 60px;
-}
-
-#search {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-size: 18px;
-    outline: none;
-    backdrop-filter: blur(6px);
-}
-
-#search::placeholder {
-    color: #b3b3b3;
-}
-
-.card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 16px;
-    backdrop-filter: blur(8px);
-}
-
-.card h3 {
-    margin-top: 0;
-    color: #38bdf8;
-}
-
-.card a {
-    color: #38bdf8;
-    text-decoration: none;
-}
-
-.card a:hover {
-    text-decoration: underline;
+    transform: scale(1.05);
 }
 
 </style>
@@ -202,64 +87,6 @@ body {
 
     <a class="verify" href="#">Sprawdź oryginalność</a>
 </div>
-
-<!-- LOGIN -->
-<div class="login-box">
-    <h2>Logowanie</h2>
-
-    <input type="text" placeholder="Nazwa lub e-mail (nazwa@github.io)">
-    <input type="password" placeholder="Hasło">
-
-    <button class="login-btn">Zaloguj</button>
-
-    <div class="login-links">
-        <a href="#">Nie pamiętam hasła</a>
-        <a href="#">Utwórz konto</a>
-        <a href="#">Wejdź jako gość</a>
-    </div>
-</div>
-
-<!-- SEARCH -->
-<div class="search-section">
-    <input id="search" type="text" placeholder="Szukaj projektów, plików, poradników...">
-    <div id="results"></div>
-</div>
-
-<script>
-const data = [
-    { name: "Xiax Launcher", type: "Launcher", desc: "Launcher z ZIP key i instalacją.", link: "#" },
-    { name: "BinaryOS", type: "System", desc: "Mini system operacyjny.", link: "#" },
-    { name: "QiuX IDE", type: "Narzędzie", desc: "IDE do C#.", link: "#" }
-];
-
-const searchInput = document.getElementById("search");
-const resultsDiv = document.getElementById("results");
-
-searchInput.addEventListener("input", () => {
-    const q = searchInput.value.toLowerCase();
-    resultsDiv.innerHTML = "";
-
-    if (q.length < 1) return;
-
-    const filtered = data.filter(item =>
-        item.name.toLowerCase().includes(q) ||
-        item.desc.toLowerCase().includes(q) ||
-        item.type.toLowerCase().includes(q)
-    );
-
-    filtered.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-            <h3>${item.name}</h3>
-            <p><b>Typ:</b> ${item.type}</p>
-            <p>${item.desc}</p>
-            <a href="${item.link}">Otwórz</a>
-        `;
-        resultsDiv.appendChild(card);
-    });
-});
-</script>
 
 </body>
 </html>
