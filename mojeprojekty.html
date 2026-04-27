@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Moje Projekty – QiuX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ====== GLOBAL ====== */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg, #4c1d95 0%, #2e1065 40%, #1a0b3d 100%);
+    background-attachment: fixed;
+    color: #e5e7eb;
+    text-align: center;
+}
+
+/* ====== CHMURKI ====== */
+
+body::before, body::after {
+    content: "";
+    position: fixed;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(168,85,247,0.35), transparent 70%);
+    filter: blur(120px);
+    z-index: -1;
+}
+
+body::before { top: -200px; left: -200px; }
+body::after { bottom: -200px; right: -200px; }
+
+/* ====== PRZYCISK STRONA GŁÓWNA ====== */
+
+.home-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid #a855f7;
+    border-radius: 14px;
+    color: #e9d5ff;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #a855f7;
+    transition: 0.25s;
+}
+
+.home-btn:hover {
+    background: #a855f7;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ====== LISTA PROJEKTÓW ====== */
+
+.project-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 25px;
+    width: 300px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    margin: 40px auto;
+}
+
+.project-box h2 {
+    margin-top: 0;
+    color: #c084fc;
+    font-size: 28px;
+}
+
+.view-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid #a855f7;
+    border-radius: 14px;
+    color: #e9d5ff;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #a855f7;
+    transition: 0.25s;
+}
+
+.view-btn:hover {
+    background: #a855f7;
+    color: white;
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<a class="home-btn" href="index.html">Strona Główna</a>
+
+<div class="project-box">
+    <h2>BootQXOS VmPC</h2>
+    <a class="view-btn" href="bootqxos.html">Zobacz</a>
+</div>
+
+</body>
+</html>
