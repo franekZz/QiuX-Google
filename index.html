@@ -7,35 +7,30 @@
 
 <style>
 
-/* ====== GLOBAL ====== */
-body {
+/* ====== RESET ====== */
+body, html {
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #0a0018;
-    color: #e5e7eb;
-    text-align: center;
-
-    /* GWIAZDKI 1:1 JAK NA SCREENIE */
-    background-image: radial-gradient(circle, rgba(168,85,247,0.25) 1px, transparent 1px);
-    background-size: 40px 40px;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* ====== CHMURKI ====== */
-body::before, body::after {
-    content: "";
+/* ====== TŁO CANVAS ====== */
+#bg-canvas {
     position: fixed;
-    width: 900px;
-    height: 900px;
-    background: radial-gradient(circle, rgba(168,85,247,0.35), transparent 70%);
-    filter: blur(120px);
-    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: #0a0018;
 }
-body::before { top: -200px; left: -200px; }
-body::after { bottom: -200px; right: -200px; }
 
 /* ====== LOGO ====== */
 .logo-top {
     margin-top: 40px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 .logo-top h1 {
     font-size: 72px;
@@ -70,6 +65,10 @@ body::after { bottom: -200px; right: -200px; }
 /* ====== SEKCJA GŁÓWNA ====== */
 .section {
     margin-top: 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
 }
 .section h2 {
     font-size: 32px;
@@ -85,6 +84,8 @@ body::after { bottom: -200px; right: -200px; }
     justify-content: center;
     gap: 40px;
     margin-top: 40px;
+    position: relative;
+    z-index: 2;
 }
 .box {
     background: rgba(255,255,255,0.08);
@@ -111,12 +112,17 @@ body::after { bottom: -200px; right: -200px; }
     margin-top: 60px;
     padding-bottom: 40px;
     color: #c4b5fd;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 </style>
 </head>
 
 <body>
+
+<canvas id="bg-canvas"></canvas>
 
 <!-- LOGO NA SAMEJ GÓRZE -->
 <div class="logo-top">
@@ -162,6 +168,56 @@ body::after { bottom: -200px; right: -200px; }
     Gmail: franekzzz2293@gmail.com<br>
     Tel: +48 665 295 964
 </div>
+
+<script>
+/* ====== ANIMACJA TŁA (TWÓJ KOD) ====== */
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let particles = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+    }
+    draw() {
+        ctx.fillStyle = '#8a2be2';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function init() {
+    for (let i = 0; i < 50; i++) particles.push(new Particle());
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+}
+init();
+animate();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 
 </body>
 </html>
