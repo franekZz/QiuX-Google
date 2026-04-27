@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>QiuX Google</title>
+<title>QiuX Google – Oficjalna Strona</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -11,10 +11,13 @@
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(180deg, #4c1d95 0%, #2e1065 40%, #1a0b3d 100%);
-    background-attachment: fixed;
+    background: #0a0018;
     color: #e5e7eb;
     text-align: center;
+
+    /* GWIAZDKI 1:1 JAK NA SCREENIE */
+    background-image: radial-gradient(circle, rgba(168,85,247,0.25) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
 /* ====== CHMURKI ====== */
@@ -32,23 +35,15 @@ body::after { bottom: -200px; right: -200px; }
 
 /* ====== LOGO ====== */
 .logo-top {
-    text-align: center;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 .logo-top h1 {
     font-size: 72px;
     font-weight: 800;
     letter-spacing: -3px;
-    margin-bottom: 10px;
 }
-.qiux {
-    color: #a855f7;
-    text-shadow: 0 0 20px #a855f7;
-}
-.google span {
-    font-weight: bold;
-    text-shadow: 0 0 12px rgba(255,255,255,0.4);
-}
+.qiux { color: #a855f7; text-shadow: 0 0 20px #a855f7; }
+.google span { font-weight: bold; }
 
 /* ====== PRZYCISK ====== */
 .verify {
@@ -63,7 +58,7 @@ body::after { bottom: -200px; right: -200px; }
     font-weight: 600;
     text-decoration: none;
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px #a855f7, 0 0 40px rgba(168,85,247,0.6);
+    box-shadow: 0 0 20px #a855f7;
     transition: 0.25s;
 }
 .verify:hover {
@@ -72,11 +67,58 @@ body::after { bottom: -200px; right: -200px; }
     transform: scale(1.07);
 }
 
+/* ====== SEKCJA GŁÓWNA ====== */
+.section {
+    margin-top: 40px;
+}
+.section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.section p {
+    font-size: 20px;
+}
+
+/* ====== BOXY ====== */
+.boxes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+.box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 25px;
+    width: 260px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+.box h3 {
+    margin-top: 0;
+    color: #c084fc;
+}
+.status-dot {
+    width: 14px;
+    height: 14px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* ====== STOPKA ====== */
+.footer {
+    margin-top: 60px;
+    padding-bottom: 40px;
+    color: #c4b5fd;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- LOGO NA SAMEJ GÓRZE -->
 <div class="logo-top">
     <h1>
         <span class="qiux">QiuX</span>
@@ -91,6 +133,34 @@ body::after { bottom: -200px; right: -200px; }
     </h1>
 
     <a class="verify" href="mojeprojekty.html">Sprawdź Oryginalność</a>
+</div>
+
+<!-- SEKCJA GŁÓWNA -->
+<div class="section">
+    <h2>Oficjalna strona projektu Q i X</h2>
+    <p style="color:#22c55e;">Uruchomień systemu: 1,248</p>
+    <p>Stworzone na: GitHub</p>
+    <p>Powered by GitHub and GitHub sites</p>
+</div>
+
+<!-- BOXY -->
+<div class="boxes">
+    <div class="box">
+        <h3>Moje Projekty</h3>
+        <a class="verify" href="mojeprojekty.html">BootQXOS VmPC</a>
+    </div>
+
+    <div class="box">
+        <h3>Status Systemu</h3>
+        <p><span class="status-dot"></span> Serwery GitHub Online</p>
+    </div>
+</div>
+
+<!-- STOPKA -->
+<div class="footer">
+    © 2026 QiuX Hub<br>
+    Gmail: franekzzz2293@gmail.com<br>
+    Tel: +48 665 295 964
 </div>
 
 </body>
